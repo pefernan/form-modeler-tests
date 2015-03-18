@@ -20,6 +20,8 @@
 <module>
 
   <inherits name="org.jboss.errai.bus.ErraiBus"/>
+  <inherits name="com.github.gwtbootstrap.datepicker.Datepicker"/>
+  <inherits name="org.jboss.errai.validation.Validation" />
   <inherits name="org.kie.formModeler.examples.FMExamplesAPI"/>
 
   <source path='client'/>

@@ -21,8 +21,6 @@ import javax.inject.Inject;
 
 import com.github.gwtbootstrap.client.ui.Tab;
 import com.github.gwtbootstrap.client.ui.TabPanel;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
@@ -58,12 +56,7 @@ public class HomeScreen extends Composite {
         Tab user = new Tab();
         user.setHeading( "User" );
         user.add( userExample );
-        user.addClickHandler( new ClickHandler() {
-            @Override public void onClick( ClickEvent event ) {
-                userExample.startTest();
-            }
-        } );
         tabPanel.add( user );
-
+        tabPanel.selectTab( 0 );
     }
 }

@@ -7,6 +7,9 @@
   <inherits name="org.uberfire.ext.apps.UberfireAppsClient"/>
   <inherits name="org.uberfire.ext.plugin.RuntimePluginClient"/>
 
+  <inherits name="org.hibernate.validator.HibernateValidator" />
+  <inherits name="org.jboss.errai.validation.Validation" />
+
   <inherits name="org.kie.formModeler.examples.FMExamplesClient"/>
 
   <source path='client'/>
