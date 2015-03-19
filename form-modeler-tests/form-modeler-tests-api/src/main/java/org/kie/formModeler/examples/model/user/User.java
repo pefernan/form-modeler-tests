@@ -2,7 +2,9 @@ package org.kie.formModeler.examples.model.user;
 
 import java.util.Date;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -17,12 +19,17 @@ public class User {
     private String name;
 
     @NotEmpty
-    @Size(min = 4, max = 20)
+    @Size( min = 4, max = 20 )
     private String surname;
+
     private Date birthday;
 
-    @Min(18)
+    @Min( 18 )
     private int age;
+
+    @NotNull
+    @Valid
+    private Address address;
 
     public String getName() {
         return name;
@@ -54,5 +61,13 @@ public class User {
 
     public void setAge( int age ) {
         this.age = age;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress( Address address ) {
+        this.address = address;
     }
 }

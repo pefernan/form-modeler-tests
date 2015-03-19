@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
     private SimpleDateFormat sdf = new SimpleDateFormat( "dd/MM/yyyy" );
 
     @Override
-    public Object getUser() {
+    public User getUser() {
         User user = new User();
         user.setName( "Pere" );
         user.setSurname( "Fernandez" );

@@ -26,6 +26,7 @@ import org.jboss.errai.databinding.client.api.PropertyChangeHandler;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
+import org.kie.formModeler.examples.model.user.User;
 import org.kie.formModeler.examples.service.user.UserService;
 
 @Templated
@@ -34,9 +35,9 @@ public class UserExample extends Composite {
     @Inject
     private Caller<UserService> userService;
 
-    private DataBinder binder;
+    private DataBinder<User> binder;
 
-    private Object model;
+    private User model;
 
     @Inject
     @DataField
@@ -53,6 +54,22 @@ public class UserExample extends Composite {
     @Inject
     @DataField
     private IntegerBox age;
+
+    @Inject
+    @DataField
+    private TextBox street;
+
+    @Inject
+    @DataField
+    private IntegerBox num;
+
+    @Inject
+    @DataField
+    private TextBox cp;
+
+    @Inject
+    @DataField
+    private TextBox city;
 
     @Inject
     @DataField
@@ -73,18 +90,28 @@ public class UserExample extends Composite {
         validate.setText( "Validate values" );
         validate.setEnabled( false );
         validate.setType( ButtonType.PRIMARY );
+
+        num.setSize( 5 );
+        num.setMaxLength( 3 );
+
+        cp.setMaxLength( 5 );
+        cp.setSize( 7 );
     }
 
     @EventHandler("start")
     public void start(ClickEvent clickEvent) {
-        userService.call( new RemoteCallback<Object>() {
+        userService.call( new RemoteCallback<User>() {
             @Override
-            public void callback( Object o ) {
+            public void callback( User o ) {
                 binder = DataBinder.forModel( o, InitialState.FROM_MODEL )
                         .bind( name, "name" )
                         .bind( surname, "surname" )
                         .bind( birthday, "birthday" )
-                        .bind( age, "age" );
+                        .bind( age, "age" )
+                        .bind( street, "address.street" )
+                        .bind( num, "address.num" )
+                        .bind( cp, "address.cp" )
+                        .bind( city, "address.city" );
 
                 binder.addPropertyChangeHandler(new PropertyChangeHandler() {
 
@@ -109,7 +136,7 @@ public class UserExample extends Composite {
 
     @EventHandler("validate")
     public void validate(ClickEvent clickEvent) {
-        Set<ConstraintViolation<Object>> result = validator.validate( model );
+        Set<ConstraintViolation<User>> result = validator.validate( model );
         for (ConstraintViolation validation : result) {
             Window.alert(validation.getMessage());
             Window.alert( validation.getPropertyPath().toString() );
