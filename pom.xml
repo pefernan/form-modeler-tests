@@ -24,6 +24,7 @@
   <modules>
     <module>form-modeler-bom</module>
     <module>form-modeler-deps</module>
+    <module>form-modeler-common</module>
     <module>form-modeler-tests</module>
     <module>form-modeler-showcase</module>
   </modules>

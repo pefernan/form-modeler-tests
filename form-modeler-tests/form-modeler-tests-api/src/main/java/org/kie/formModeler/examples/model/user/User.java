@@ -25,6 +25,7 @@ public class User {
     private Date birthday;
 
     @Min( 18 )
+    @NotNull
     private int age;
 
     @NotNull

@@ -34,11 +34,11 @@ public class HomePerspective {
         perspective.setName( "Home Perspective" );
 
         final PanelDefinition screen = new PanelDefinitionImpl( SimpleWorkbenchPanelPresenter.class.getName() );
-        screen.setWidth( 400 );
-        screen.setMinWidth( 350 );
+        screen.setWidth( 1024 );
+        screen.setHeight( 800 );
         screen.addPart( new PartDefinitionImpl( new DefaultPlaceRequest( "HomeScreen" ) ) );
 
-        perspective.getRoot().insertChild( CompassPosition.EAST, screen );
+        perspective.getRoot().insertChild( CompassPosition.NORTH, screen );
 
         return perspective;
     }

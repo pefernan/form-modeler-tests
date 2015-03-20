@@ -1,0 +1,64 @@
+<div>
+    <table>
+        <tr>
+            <td>
+                <div class="well">
+                    <h3>Fields available on User Object:</h3>
+                    <h5>Select to add them to the form</h5>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" data-field="name"> Name (String)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label><input type="checkbox" data-field="surname"> Surname (String)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label><input type="checkbox" data-field="birthday"> Birthday (Date)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label><input type="checkbox" data-field="age"> Age (int)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label><input type="checkbox" data-field="street"> Address / street (String)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label><input type="checkbox" data-field="num"> Address / num (int)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label><input type="checkbox" data-field="cp"> Address / cp (String)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label><input type="checkbox" data-field="city"> Address / city (String)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default" data-field="reset">Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </td>
+            <td valign="top">
+                <div data-field="content"/>
+            </td>
+        </tr>
+    </table>
+</div>

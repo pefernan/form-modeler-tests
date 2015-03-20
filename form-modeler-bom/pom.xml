@@ -48,6 +48,26 @@
         <artifactId>form-modeler-tests-backend</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>form-modeler-common</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>form-modeler-common-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>form-modeler-common-client</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>form-modeler-common-backend</artifactId>
+        <version>${project.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

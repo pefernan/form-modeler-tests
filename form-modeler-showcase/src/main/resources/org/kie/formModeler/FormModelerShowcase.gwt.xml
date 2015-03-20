@@ -12,6 +12,9 @@
 
   <inherits name="org.kie.formModeler.examples.FMExamplesClient"/>
 
+  <inherits name="org.kie.formModeler.common.FormModelerAPI"/>
+  <inherits name="org.kie.formModeler.rendering.FormModelerClient"/>
+
   <source path='client'/>
   <source path='shared'/>
 

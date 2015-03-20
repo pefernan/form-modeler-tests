@@ -185,6 +185,21 @@
       <groupId>org.kie</groupId>
       <artifactId>form-modeler-tests-backend</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>form-modeler-common-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>form-modeler-common-client</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>form-modeler-common-backend</artifactId>
+    </dependency>
   </dependencies>
 
   <build>

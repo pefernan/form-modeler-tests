@@ -3,10 +3,12 @@ package org.kie.formModeler.examples.service.user;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import javax.enterprise.context.ApplicationScoped;
 
 import org.jboss.errai.bus.server.annotations.Service;
+import org.kie.formModeler.examples.model.user.Address;
 import org.kie.formModeler.examples.model.user.User;
 
 @Service
@@ -19,15 +21,25 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setName( "Pere" );
         user.setSurname( "Fernandez" );
-        Date dt;
-        try {
-            dt = sdf.parse( "24/02/1981" );
-        } catch ( ParseException e ) {
-            dt = new Date(  );
-        }
-        user.setBirthday( dt );
 
-        user.setAge( new Date(  ).getYear() - dt.getYear() );
+        Calendar birth = Calendar.getInstance();
+
+        birth.set( Calendar.DAY_OF_MONTH, 24 );
+        birth.set( Calendar.MONTH, Calendar.FEBRUARY );
+        birth.set( Calendar.YEAR, 1981 );
+
+        user.setBirthday( birth.getTime() );
+
+        user.setAge( Calendar.getInstance().get( Calendar.YEAR ) - birth.get( Calendar.YEAR ) );
+
+        Address address = new Address();
+
+        address.setStreet( "Passeig de Gracia" );
+        address.setNum( 120 );
+        address.setCp( "08008" );
+        address.setCity( "Barcelona" );
+
+        user.setAddress( address );
 
         return user;
     }
