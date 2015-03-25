@@ -12,6 +12,12 @@
   <artifactId>form-modeler-common-api</artifactId>
   <name>Form Modeler - Common API</name>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.jboss.errai</groupId>
+      <artifactId>errai-common</artifactId>
+    </dependency>
+  </dependencies>
   <build>
     <resources>
       <!-- Include src/main/java in order not to break the Eclipse GWT plug-in -->

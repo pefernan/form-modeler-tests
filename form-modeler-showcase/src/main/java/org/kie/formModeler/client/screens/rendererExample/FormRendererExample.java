@@ -26,6 +26,7 @@ import com.github.gwtbootstrap.client.ui.constants.ButtonType;
 import com.github.gwtbootstrap.client.ui.constants.FormType;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import org.jboss.errai.common.client.api.Caller;
@@ -41,6 +42,7 @@ import org.kie.formModeler.common.model.impl.TextBoxFieldDefinition;
 import org.kie.formModeler.examples.model.user.User;
 import org.kie.formModeler.examples.service.user.UserService;
 import org.kie.formModeler.rendering.client.renderer.FormRenderer;
+import org.kie.formModeler.shared.sourceGeneration.FormSourceCreator;
 
 @Dependent
 @Templated
@@ -86,12 +88,18 @@ public class FormRendererExample extends Composite {
     @DataField
     private Button reset;
 
+    @Inject
+    @DataField
+    private Button generate;
 
     @Inject
     private FormRenderer renderer;
 
     @Inject
     private Caller<UserService> userService;
+
+    @Inject
+    private Caller<FormSourceCreator> sourceCreator;
 
     private User user;
     private FormDefinition formDefinition;
@@ -137,6 +145,16 @@ public class FormRendererExample extends Composite {
     protected void removeField( String fieldId ) {
         formDefinition.removeField( fieldId );
         renderer.loadForm( formDefinition, user );
+    }
+
+    @EventHandler("generate")
+    protected void generateSource( ClickEvent event ) {
+        sourceCreator.call( new RemoteCallback<Void>() {
+            @Override
+            public void callback( Void nothing ) {
+                Window.alert( "Done!" );
+            }
+        } ).createFormSource( formDefinition, renderer.getSource() );
     }
 
     @EventHandler("name")

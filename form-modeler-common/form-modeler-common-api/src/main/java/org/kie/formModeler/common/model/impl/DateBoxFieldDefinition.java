@@ -2,11 +2,13 @@ package org.kie.formModeler.common.model.impl;
 
 import java.util.Date;
 
+import org.jboss.errai.common.client.api.annotations.Portable;
 import org.kie.formModeler.common.model.FieldDefinition;
 
 /**
  * Created by pefernan on 3/19/15.
  */
+@Portable
 public class DateBoxFieldDefinition extends FieldDefinition<Date> {
 
     protected Integer size = 15;

@@ -1,10 +1,12 @@
 package org.kie.formModeler.common.model.impl;
 
+import org.jboss.errai.common.client.api.annotations.Portable;
 import org.kie.formModeler.common.model.FieldDefinition;
 
 /**
  * Created by pefernan on 3/19/15.
  */
+@Portable
 public class IntBoxFieldDefinition extends FieldDefinition<Integer> {
 
     protected Integer size = 15;

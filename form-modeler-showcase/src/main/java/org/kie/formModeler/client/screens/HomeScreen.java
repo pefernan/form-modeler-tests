@@ -26,8 +26,8 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
 import org.kie.formModeler.client.screens.rendererExample.FormRendererExample;
+import org.kie.formModeler.examples.client.auto.Index;
 import org.kie.formModeler.examples.client.users.UserExample;
-import org.kie.formModeler.rendering.client.renderer.FormRenderer;
 import org.uberfire.client.annotations.WorkbenchPartTitle;
 import org.uberfire.client.annotations.WorkbenchScreen;
 
@@ -48,6 +48,9 @@ public class HomeScreen extends Composite {
     @Inject
     private FormRendererExample rendererExample;
 
+    @Inject
+    private Index dynamicExample;
+
     @WorkbenchPartTitle
     public String getScreenTitle() {
         return "Welcome to Form Modeler";
@@ -62,6 +65,11 @@ public class HomeScreen extends Composite {
         renderer.setHeading( "Dynamic Form Renderer Test" );
         renderer.add( rendererExample );
         tabPanel.add( renderer );
+
+        final Tab example = new Tab();
+        example.setHeading( "Dynamic Generated Example" );
+        example.add( dynamicExample );
+        tabPanel.add( example );
 
         Tab user = new Tab();
         user.setHeading( "User" );

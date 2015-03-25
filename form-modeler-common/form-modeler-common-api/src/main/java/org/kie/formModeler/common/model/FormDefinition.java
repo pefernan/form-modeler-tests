@@ -4,10 +4,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.jboss.errai.common.client.api.annotations.Portable;
+
+@Portable
 public class FormDefinition {
     private List<FieldDefinition> fields;
 
     private String name;
+
+    public FormDefinition() {
+        this.fields = new ArrayList<FieldDefinition>(  );
+    }
 
     public FormDefinition( String name ) {
         this.name = name;

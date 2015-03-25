@@ -3,7 +3,6 @@ package org.kie.formModeler.rendering.client.fields.impl;
 import com.github.gwtbootstrap.client.ui.ControlGroup;
 import com.github.gwtbootstrap.client.ui.ControlLabel;
 import com.github.gwtbootstrap.client.ui.Controls;
-import com.github.gwtbootstrap.client.ui.FormLabel;
 import com.github.gwtbootstrap.client.ui.HelpBlock;
 import com.github.gwtbootstrap.client.ui.constants.ControlGroupType;
 import com.google.gwt.user.client.ui.Widget;
@@ -13,7 +12,7 @@ import org.kie.formModeler.rendering.client.fields.InputHolder;
 
 public abstract class AbstractInputHolder implements InputHolder {
     protected FieldDefinition fieldDefinition;
-    protected FormLabel inputLabel;
+    protected ControlLabel inputLabel;
     protected Widget fieldInput;
     protected HelpBlock helpBlock = new HelpBlock();
     protected ControlGroup controlGroup = new ControlGroup();
@@ -21,14 +20,13 @@ public abstract class AbstractInputHolder implements InputHolder {
 
     protected AbstractInputHolder( FieldDefinition definition ) {
         fieldDefinition = definition;
-        controlGroup = new ControlGroup();
+        controlGroup.getElement().setId( definition.getName() + "_control_group" );
+        helpBlock.getElement().setId( definition.getName() + "_help_block" );
 
-        ControlLabel controlLabel = new ControlLabel();
-        inputLabel = new FormLabel(fieldDefinition.getLabel());
+        inputLabel = new ControlLabel(fieldDefinition.getLabel());
         inputLabel.setFor(fieldDefinition.getName());
-        controlLabel.add(inputLabel);
 
-        controlGroup.add(controlLabel);
+        controlGroup.add(inputLabel);
 
         Controls controls = new Controls();
         fieldInput = createInputWidget(definition);

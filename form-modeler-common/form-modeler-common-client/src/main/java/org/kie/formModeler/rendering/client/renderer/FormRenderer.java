@@ -64,21 +64,20 @@ public class FormRenderer extends Composite {
 
         binder = DataBinder.forModel( model, InitialState.FROM_MODEL );
 
-        VerticalPanel panel = new VerticalPanel();
+
 
         for ( FieldDefinition definition : formDefinition.getFields() ) {
             InputHolderProvider provider = fieldManager.getProviderByType( definition.getCode() );
             if (provider != null) {
                 InputHolder holder = provider.getInputBuilder( definition );
                 inputs.put( holder.getFieldName(), holder );
-                panel.add( holder.getInputContainer() );
+                form.add( holder.getInputContainer() );
                 holder.bindInput( binder );
             }
         }
         this.model = binder.getModel();
 
         validate.setEnabled( true );
-        form.add( panel );
     }
 
 
@@ -110,5 +109,9 @@ public class FormRenderer extends Composite {
         validate.setEnabled( false );
         inputs.clear();
         form.clear();
+    }
+
+    public String getSource() {
+        return form.getElement().getParentElement().getInnerHTML();
     }
 }
